@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #e2e2e2;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" id="row1">
+            <div class="col-md-6 offset-md-3">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">
+                            Age Calculator
+                        </h5>
+                        <p class="text-secondary"><small>Provide Your Date Of Birth</small></p>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <!-- date -->
+                                <div class="form-group">
+                                    <input id="dateField" type="text" placeholder="Date" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <!-- month -->
+                                <div class="form-group">
+                                    <select name="month" id="monthField" class="form-control">
+                                        <option value="" selected disabled>Month</option>
+                                        <option value="">January</option>
+                                        <option value="">February</option>
+                                        <option value="">March</option>
+                                        <option value="">April</option>
+                                        <option value="">May</option>
+                                        <option value="">June</option>
+                                        <option value="">July</option>
+                                        <option value="">August</option>
+                                        <option value="">September</option>
+                                        <option value="">October</option>
+                                        <option value="">November</option>
+                                        <option value="">December</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <!-- year -->
+                                <div class="form-group">
+                                    <input id="yearField" type="text" placeholder="Year" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container text-center mt-3">
+                            <button  onclick="calculateAge()" id="calAge" type="button" class="btn btn-outline-warning">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+
+
+        <script>
+            const calculateAge =()=>{
+                    let date = document.getElementById('dateField').value
+                    let month = document.getElementById('monthField').value
+                    let year = document.getElementById('yearField').value
+                    console.log(date)
+                    console.log(month)
+                    console.log(year)
+        
+                    if(date>31){
+                        alert('invalid date')
+                        return;
+                    }
+                    //parse
+                    let dob = new Date(`${date} ${month} ${year}`)
+                    let now = new Date()
+        
+                    let diffrence = now - dob;
+        
+                    let days = Math.floor(diffrence/(1000*60*60*24))
+                    console.log(days)
+                    alert(days)
+                }
+            </script>
+        
+</body>
+
+</html>
